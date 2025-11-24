@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JJL Solutions - Professional IT Consulting & Support</title>
+    <meta name="description" content="Expert IT consulting and support services including hardware solutions, network management, and data security.">
     <style>
         * {
             margin: 0;
@@ -12,27 +13,49 @@
         }
 
         :root {
-            --primary: #2563eb;
-            --primary-dark: #1e40af;
-            --secondary: #10b981;
-            --dark: #1e293b;
-            --light: #f8fafc;
-            --gray: #64748b;
+            --primary: #a78bfa;
+            --primary-dark: #8b5cf6;
+            --secondary: #ec4899;
+            --accent: #c084fc;
+            --dark: #18181b;
+            --dark-lighter: #27272a;
+            --dark-card: #27272a;
+            --text-primary: #fafafa;
+            --text-secondary: #d4d4d8;
+            --border: #3f3f46;
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--dark);
+        }
+
+        /* Skip to main content for screen readers */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--primary);
             color: var(--dark);
+            padding: 8px;
+            text-decoration: none;
+            z-index: 100;
+        }
+
+        .skip-link:focus {
+            top: 0;
         }
 
         /* Header & Navigation */
         header {
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background: var(--dark-lighter);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
             position: sticky;
             top: 0;
             z-index: 100;
+            border-bottom: 1px solid var(--border);
         }
 
         nav {
@@ -47,7 +70,11 @@
         .logo {
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--primary);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 0.5px;
         }
 
         .nav-links {
@@ -58,61 +85,108 @@
 
         .nav-links a {
             text-decoration: none;
-            color: var(--dark);
+            color: var(--text-secondary);
             font-weight: 500;
             transition: color 0.3s;
+            position: relative;
         }
 
-        .nav-links a:hover {
+        .nav-links a:hover,
+        .nav-links a:focus {
             color: var(--primary);
+            outline: none;
+        }
+
+        .nav-links a:focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 4px;
+            border-radius: 4px;
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: white;
+            background: radial-gradient(ellipse at top, rgba(167, 139, 250, 0.15) 0%, transparent 50%),
+                        var(--dark);
+            color: var(--text-primary);
             padding: 6rem 2rem;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(167, 139, 250, 0.03) 2px,
+                rgba(167, 139, 250, 0.03) 4px
+            );
+            animation: gridMove 20s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(40px); }
         }
 
         .hero-content {
             max-width: 800px;
             margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
 
         .hero h1 {
             font-size: 3rem;
             margin-bottom: 1.5rem;
             line-height: 1.2;
+            color: var(--text-primary);
         }
 
         .hero p {
             font-size: 1.25rem;
             margin-bottom: 2rem;
-            opacity: 0.95;
+            color: var(--text-secondary);
         }
 
         .cta-button {
             display: inline-block;
-            background: var(--secondary);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             color: white;
             padding: 1rem 2.5rem;
             text-decoration: none;
             border-radius: 8px;
             font-weight: 600;
             font-size: 1.1rem;
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+            position: relative;
         }
 
-        .cta-button:hover {
+        .cta-button:hover,
+        .cta-button:focus {
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 30px rgba(167, 139, 250, 0.4);
+            outline: none;
+        }
+
+        .cta-button:focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 4px;
         }
 
         /* Services Section */
         .services {
             padding: 5rem 2rem;
-            background: var(--light);
+            background: var(--dark);
         }
 
         .container {
@@ -124,13 +198,13 @@
             text-align: center;
             font-size: 2.5rem;
             margin-bottom: 1rem;
-            color: var(--dark);
+            color: var(--text-primary);
         }
 
         .section-subtitle {
             text-align: center;
             font-size: 1.1rem;
-            color: var(--gray);
+            color: var(--text-secondary);
             margin-bottom: 3rem;
         }
 
@@ -142,52 +216,99 @@
         }
 
         .service-card {
-            background: white;
+            background: var(--dark-card);
             padding: 2rem;
             border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.07);
-            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
         }
 
-        .service-card:hover {
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(167, 139, 250, 0.1) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .service-card:hover,
+        .service-card:focus-within {
             transform: translateY(-5px);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+            border-color: var(--primary);
+            box-shadow: 0 12px 24px rgba(167, 139, 250, 0.3);
+        }
+
+        .service-card:hover::before,
+        .service-card:focus-within::before {
+            opacity: 1;
         }
 
         .service-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+            width: 48px;
+            height: 48px;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-icon svg {
+            width: 100%;
+            height: 100%;
+            stroke: var(--primary);
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
         }
 
         .service-card h3 {
             font-size: 1.5rem;
             margin-bottom: 1rem;
             color: var(--primary);
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
         }
 
         .service-card ul {
             list-style: none;
             margin-top: 1rem;
+            position: relative;
+            z-index: 1;
         }
 
         .service-card li {
             padding: 0.5rem 0;
             padding-left: 1.5rem;
             position: relative;
+            color: var(--text-secondary);
         }
 
         .service-card li:before {
-            content: "✓";
+            content: "›";
             position: absolute;
             left: 0;
-            color: var(--secondary);
+            color: var(--primary);
             font-weight: bold;
+            font-size: 1.2rem;
         }
 
         /* Why Choose Us */
         .why-choose {
             padding: 5rem 2rem;
-            background: white;
+            background: var(--dark-lighter);
         }
 
         .features-grid {
@@ -200,35 +321,61 @@
         .feature {
             text-align: center;
             padding: 1.5rem;
+            background: var(--dark);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .feature:hover,
+        .feature:focus-within {
+            border-color: var(--primary);
+            box-shadow: 0 8px 16px rgba(167, 139, 250, 0.2);
         }
 
         .feature-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 1rem;
+        }
+
+        .feature-icon svg {
+            width: 100%;
+            height: 100%;
+            stroke: var(--accent);
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
         }
 
         .feature h3 {
             font-size: 1.25rem;
             margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .feature p {
+            color: var(--text-secondary);
         }
 
         /* Contact Section */
         .contact {
             padding: 5rem 2rem;
             background: var(--dark);
-            color: white;
             text-align: center;
         }
 
         .contact h2 {
             font-size: 2.5rem;
             margin-bottom: 1rem;
+            color: var(--text-primary);
         }
 
         .contact p {
             font-size: 1.2rem;
             margin-bottom: 2rem;
-            opacity: 0.9;
+            color: var(--text-secondary);
         }
 
         .contact-info {
@@ -244,18 +391,49 @@
             align-items: center;
             gap: 0.75rem;
             font-size: 1.1rem;
+            color: var(--text-secondary);
+        }
+
+        .contact-item a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-item a:hover,
+        .contact-item a:focus {
+            color: var(--primary);
+            outline: none;
+        }
+
+        .contact-item a:focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 4px;
+            border-radius: 4px;
         }
 
         .contact-item-icon {
-            font-size: 1.5rem;
+            width: 24px;
+            height: 24px;
+        }
+
+        .contact-item-icon svg {
+            width: 100%;
+            height: 100%;
+            stroke: var(--primary);
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
         }
 
         /* Footer */
         footer {
-            background: #0f172a;
-            color: white;
+            background: var(--dark-lighter);
+            color: var(--text-secondary);
             text-align: center;
             padding: 2rem;
+            border-top: 1px solid var(--border);
         }
 
         /* Mobile Responsive */
@@ -265,7 +443,6 @@
             }
 
             .nav-links {
-                flex-direction: column;
                 gap: 1rem;
             }
 
@@ -279,12 +456,21 @@
                 gap: 1.5rem;
             }
         }
+
+        /* Focus visible improvements for accessibility */
+        *:focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+        }
     </style>
 </head>
 <body>
+    <!-- Skip link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <!-- Header -->
-    <header>
-        <nav>
+    <header role="banner">
+        <nav role="navigation" aria-label="Main navigation">
             <div class="logo">JJL Solutions</div>
             <ul class="nav-links">
                 <li><a href="#services">Services</a></li>
@@ -294,153 +480,223 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Professional IT Solutions for Your Business</h1>
-            <p>Expert consulting, support, and custom solutions to optimize your IT infrastructure and keep your business running smoothly.</p>
-            <a href="#contact" class="cta-button">Get Started Today</a>
-        </div>
-    </section>
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="hero-content">
+                <h1 id="hero-title">Professional IT Solutions for Your Business</h1>
+                <p>Expert consulting, support, and custom solutions to optimize your IT infrastructure and keep your business running smoothly.</p>
+                <a href="#contact" class="cta-button">Get Started Today</a>
+            </div>
+        </section>
 
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="container">
-            <h2 class="section-title">Our Services</h2>
-            <p class="section-subtitle">Comprehensive IT solutions tailored to your needs</p>
-            
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">🖥️</div>
-                    <h3>Hardware Solutions</h3>
-                    <p>Complete hardware support for your business needs</p>
-                    <ul>
-                        <li>Computer repairs & troubleshooting</li>
-                        <li>Hardware upgrades & optimization</li>
-                        <li>Custom-built computers</li>
-                        <li>Server maintenance</li>
-                    </ul>
-                </div>
+        <!-- Services Section -->
+        <section class="services" id="services" aria-labelledby="services-title">
+            <div class="container">
+                <h2 id="services-title" class="section-title">Our Services</h2>
+                <p class="section-subtitle">Comprehensive IT solutions tailored to your needs</p>
+                
+                <div class="services-grid">
+                    <article class="service-card">
+                        <div class="service-icon" role="img" aria-label="Hardware Solutions">
+                            <svg viewBox="0 0 24 24">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                <line x1="8" y1="21" x2="16" y2="21"></line>
+                                <line x1="12" y1="17" x2="12" y2="21"></line>
+                            </svg>
+                        </div>
+                        <h3>Hardware Solutions</h3>
+                        <p>Complete hardware support for your business needs</p>
+                        <ul>
+                            <li>Computer repairs & troubleshooting</li>
+                            <li>Hardware upgrades & optimization</li>
+                            <li>Custom-built computers</li>
+                            <li>Server maintenance</li>
+                        </ul>
+                    </article>
 
-                <div class="service-card">
-                    <div class="service-icon">💻</div>
-                    <h3>Software Support</h3>
-                    <p>Keep your systems running at peak performance</p>
-                    <ul>
-                        <li>Operating system optimization</li>
-                        <li>Software installation & updates</li>
-                        <li>Glitch resolution</li>
-                        <li>Virus protection & removal</li>
-                    </ul>
-                </div>
+                    <article class="service-card">
+                        <div class="service-icon" role="img" aria-label="Software Support">
+                            <svg viewBox="0 0 24 24">
+                                <polyline points="16 18 22 12 16 6"></polyline>
+                                <polyline points="8 6 2 12 8 18"></polyline>
+                            </svg>
+                        </div>
+                        <h3>Software Support</h3>
+                        <p>Keep your systems running at peak performance</p>
+                        <ul>
+                            <li>Operating system optimization</li>
+                            <li>Software installation & updates</li>
+                            <li>Glitch resolution</li>
+                            <li>Virus protection & removal</li>
+                        </ul>
+                    </article>
 
-                <div class="service-card">
-                    <div class="service-icon">🌐</div>
-                    <h3>Network Solutions</h3>
-                    <p>Reliable network infrastructure for your business</p>
-                    <ul>
-                        <li>Network setup & configuration</li>
-                        <li>Ongoing maintenance</li>
-                        <li>Security implementation</li>
-                        <li>Performance optimization</li>
-                    </ul>
-                </div>
+                    <article class="service-card">
+                        <div class="service-icon" role="img" aria-label="Network Solutions">
+                            <svg viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="2" y1="12" x2="22" y2="12"></line>
+                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                            </svg>
+                        </div>
+                        <h3>Network Solutions</h3>
+                        <p>Reliable network infrastructure for your business</p>
+                        <ul>
+                            <li>Network setup & configuration</li>
+                            <li>Ongoing maintenance</li>
+                            <li>Security implementation</li>
+                            <li>Performance optimization</li>
+                        </ul>
+                    </article>
 
-                <div class="service-card">
-                    <div class="service-icon">💾</div>
-                    <h3>Data Management</h3>
-                    <p>Protect your valuable business data</p>
-                    <ul>
-                        <li>Data backup solutions</li>
-                        <li>Data recovery services</li>
-                        <li>Cloud storage setup</li>
-                        <li>Disaster recovery planning</li>
-                    </ul>
-                </div>
+                    <article class="service-card">
+                        <div class="service-icon" role="img" aria-label="Data Management">
+                            <svg viewBox="0 0 24 24">
+                                <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                            </svg>
+                        </div>
+                        <h3>Data Management</h3>
+                        <p>Protect your valuable business data</p>
+                        <ul>
+                            <li>Data backup solutions</li>
+                            <li>Data recovery services</li>
+                            <li>Cloud storage setup</li>
+                            <li>Disaster recovery planning</li>
+                        </ul>
+                    </article>
 
-                <div class="service-card">
-                    <div class="service-icon">🎯</div>
-                    <h3>IT Consulting</h3>
-                    <p>Strategic guidance for your technology decisions</p>
-                    <ul>
-                        <li>Technology assessment</li>
-                        <li>Infrastructure planning</li>
-                        <li>Software recommendations</li>
-                        <li>Budget optimization</li>
-                    </ul>
-                </div>
+                    <article class="service-card">
+                        <div class="service-icon" role="img" aria-label="IT Consulting">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                                <polyline points="7.5 4.21 12 6.81 16.5 4.21"></polyline>
+                                <polyline points="7.5 19.79 7.5 14.6 3 12"></polyline>
+                                <polyline points="21 12 16.5 14.6 16.5 19.79"></polyline>
+                                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                            </svg>
+                        </div>
+                        <h3>IT Consulting</h3>
+                        <p>Strategic guidance for your technology decisions</p>
+                        <ul>
+                            <li>Technology assessment</li>
+                            <li>Infrastructure planning</li>
+                            <li>Software recommendations</li>
+                            <li>Budget optimization</li>
+                        </ul>
+                    </article>
 
-                <div class="service-card">
-                    <div class="service-icon">🛠️</div>
-                    <h3>Remote Support</h3>
-                    <p>Fast, convenient support when you need it</p>
-                    <ul>
-                        <li>Quick issue resolution</li>
-                        <li>Remote troubleshooting</li>
-                        <li>Software installation</li>
-                        <li>Training & guidance</li>
-                    </ul>
+                    <article class="service-card">
+                        <div class="service-icon" role="img" aria-label="Remote Support">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
+                            </svg>
+                        </div>
+                        <h3>Remote Support</h3>
+                        <p>Fast, convenient support when you need it</p>
+                        <ul>
+                            <li>Quick issue resolution</li>
+                            <li>Remote troubleshooting</li>
+                            <li>Software installation</li>
+                            <li>Training & guidance</li>
+                        </ul>
+                    </article>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Why Choose Us Section -->
-    <section class="why-choose" id="why-us">
-        <div class="container">
-            <h2 class="section-title">Why Choose JJL Solutions?</h2>
-            <p class="section-subtitle">Trusted IT expertise you can rely on</p>
-            
-            <div class="features-grid">
-                <div class="feature">
-                    <div class="feature-icon">⚡</div>
-                    <h3>Fast Response</h3>
-                    <p>Quick turnaround times to minimize your downtime</p>
-                </div>
+        <!-- Why Choose Us Section -->
+        <section class="why-choose" id="why-us" aria-labelledby="why-us-title">
+            <div class="container">
+                <h2 id="why-us-title" class="section-title">Why Choose JJL Solutions?</h2>
+                <p class="section-subtitle">Trusted IT expertise you can rely on</p>
+                
+                <div class="features-grid">
+                    <article class="feature">
+                        <div class="feature-icon" role="img" aria-label="Fast Response">
+                            <svg viewBox="0 0 24 24">
+                                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                                <polyline points="17 6 23 6 23 12"></polyline>
+                            </svg>
+                        </div>
+                        <h3>Fast Response</h3>
+                        <p>Quick turnaround times to minimize your downtime</p>
+                    </article>
 
-                <div class="feature">
-                    <div class="feature-icon">🎓</div>
-                    <h3>Expert Knowledge</h3>
-                    <p>Years of experience in enterprise IT environments</p>
-                </div>
+                    <article class="feature">
+                        <div class="feature-icon" role="img" aria-label="Expert Knowledge">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                            </svg>
+                        </div>
+                        <h3>Expert Knowledge</h3>
+                        <p>Years of experience in enterprise IT environments</p>
+                    </article>
 
-                <div class="feature">
-                    <div class="feature-icon">💰</div>
-                    <h3>Competitive Pricing</h3>
-                    <p>Quality service at rates that make sense for your business</p>
-                </div>
+                    <article class="feature">
+                        <div class="feature-icon" role="img" aria-label="Competitive Pricing">
+                            <svg viewBox="0 0 24 24">
+                                <line x1="12" y1="1" x2="12" y2="23"></line>
+                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                            </svg>
+                        </div>
+                        <h3>Competitive Pricing</h3>
+                        <p>Quality service at rates that make sense for your business</p>
+                    </article>
 
-                <div class="feature">
-                    <div class="feature-icon">🤝</div>
-                    <h3>Personalized Service</h3>
-                    <p>Solutions tailored to your specific needs and goals</p>
+                    <article class="feature">
+                        <div class="feature-icon" role="img" aria-label="Personalized Service">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                        </div>
+                        <h3>Personalized Service</h3>
+                        <p>Solutions tailored to your specific needs and goals</p>
+                    </article>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <h2>Ready to Optimize Your IT Infrastructure?</h2>
-            <p>Let's discuss how JJL Solutions can help your business thrive</p>
-            <a href="mailto:contact@jjlsolutions.com" class="cta-button">Contact Us Today</a>
-            
-            <div class="contact-info">
-                <div class="contact-item">
-                    <span class="contact-item-icon">📧</span>
-                    <span>contact@jjlsolutions.com</span>
-                </div>
-                <div class="contact-item">
-                    <span class="contact-item-icon">📞</span>
-                    <span>(555) 123-4567</span>
+        <!-- Contact Section -->
+        <section class="contact" id="contact" aria-labelledby="contact-title">
+            <div class="container">
+                <h2 id="contact-title">Ready to Optimize Your IT Infrastructure?</h2>
+                <p>Let's discuss how JJL Solutions can help your business thrive</p>
+                <a href="mailto:contact@jjlsolutions.com" class="cta-button">Contact Us Today</a>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span class="contact-item-icon" role="img" aria-label="Email">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                        </span>
+                        <a href="mailto:contact@jjlsolutions.com">contact@jjlsolutions.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-item-icon" role="img" aria-label="Phone">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>
+                        </span>
+                        <a href="tel:+15551234567">(555) 123-4567</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- Footer -->
-    <footer>
+    <footer role="contentinfo">
         <p>&copy; 2025 JJL Solutions. All rights reserved.</p>
     </footer>
 </body>
