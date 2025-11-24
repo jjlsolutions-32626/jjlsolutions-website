@@ -132,6 +132,14 @@ nav {
     color: var(--text-secondary);
 }
 
+.hero .service-area {
+    font-size: 1rem;
+    color: var(--primary);
+    font-weight: 600;
+    margin-top: -1rem;
+    margin-bottom: 2rem;
+}
+
 .cta-button {
     display: inline-block;
     background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
@@ -351,6 +359,13 @@ nav {
     font-size: 1.2rem;
     margin-bottom: 2rem;
     color: var(--text-secondary);
+}
+
+.contact .service-area-detail {
+    font-size: 1rem;
+    color: var(--accent);
+    margin-bottom: 2.5rem;
+    font-style: italic;
 }
 
 /* Contact Form */
