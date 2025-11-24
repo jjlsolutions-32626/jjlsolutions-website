@@ -506,12 +506,20 @@ footer {
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
-    .hero h1 {
-        font-size: 2rem;
+    nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
     }
 
     .nav-links {
-        gap: 1rem;
+        gap: 1.5rem;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
     }
 
     .services-grid,
