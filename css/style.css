@@ -161,7 +161,7 @@ nav {
 /* Services Section */
 .services {
     padding: 3.5rem 2rem;
-    background: var(--dark);
+    background: transparent;
 }
 
 .container {
@@ -283,7 +283,7 @@ nav {
 /* Why Choose Us */
 .why-choose {
     padding: 3.5rem 2rem;
-    background: var(--dark-lighter);
+    background: transparent;
 }
 
 .features-grid {
@@ -337,7 +337,7 @@ nav {
 /* Contact Section */
 .contact {
     padding: 3.5rem 2rem;
-    background: var(--dark);
+    background: transparent;
     text-align: center;
 }
 
