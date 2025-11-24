@@ -1,6 +1,23 @@
-# JJL Solutions - SEO Setup Guide
+# JJL Computer Solutions - SEO Setup Guide
 
 ## What's Been Added
+
+### Important: Domain Setup
+You own both `jjlsolutions.com` and `jjlcomputersolutions.com`. 
+
+**Recommended configuration:**
+- **Primary domain:** jjlsolutions.com (easier to type and remember)
+- **Business name:** JJL Computer Solutions (matches Google Business Profile)
+- **Secondary domain redirect:** Set up jjlcomputersolutions.com to redirect to jjlsolutions.com
+
+**To set up the redirect in GoDaddy:**
+1. Go to your GoDaddy Domain Manager
+2. Find jjlcomputersolutions.com
+3. Click "Manage DNS" or "Forwarding"
+4. Set up a 301 permanent redirect to https://jjlsolutions.com
+5. Include www subdomain in the redirect
+
+This way, people typing either domain will reach your site, and search engines understand they're the same business.
 
 ### 1. Meta Tags
 ✅ Enhanced page title with location keywords
@@ -28,7 +45,7 @@ Go to: https://business.google.com
 
 **Steps:**
 1. Create or claim your business listing
-2. Add your business name: JJL Solutions
+2. Add your business name: JJL Computer Solutions
 3. Category: Computer Support and Services
 4. Service area: Levy County and surrounding areas
 5. Add your website: jjlsolutions.com

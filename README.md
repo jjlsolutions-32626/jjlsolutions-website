@@ -1,6 +1,6 @@
-# JJL Solutions Website
+# JJL Computer Solutions Website
 
-Professional IT consulting and support website for JJL Solutions.
+Professional IT consulting and support website for JJL Computer Solutions.
 
 ## Folder Structure
 
