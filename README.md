@@ -68,3 +68,16 @@ To change colors, edit the `:root` variables in `css/style.css`.
 Update your contact details in `index.html`:
 - Email: Line 253
 - Phone: Line 264
+
+## Contact Form Setup
+
+The contact form uses Web3Forms (free service). To activate it:
+
+1. Go to https://web3forms.com
+2. Enter your email address
+3. You'll receive an Access Key via email
+4. Open `index.html` and find line ~245: `<input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">`
+5. Replace `YOUR_ACCESS_KEY_HERE` with your actual access key
+6. Save and push to GitHub
+
+That's it! Form submissions will be emailed to you. No backend needed.
