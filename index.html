@@ -343,9 +343,10 @@
                     // Scroll to success message smoothly
                     successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
                     
-                    // After 5 seconds, reload the page to root (clears hash)
+                    // After 5 seconds, reload to homepage (clears hash completely)
                     setTimeout(() => {
-                        window.location.href = window.location.origin + '/';
+                        // Use replace to avoid keeping #contact in history
+                        window.location.replace(window.location.protocol + '//' + window.location.host + '/');
                     }, 5000);
                 } else {
                     // Show error message

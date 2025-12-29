@@ -61,6 +61,11 @@ body {
     background-attachment: fixed;
 }
 
+/* Remove underlines from all links */
+a {
+    text-decoration: none;
+}
+
 /* Skip Link for Accessibility */
 .skip-link {
     position: absolute;
@@ -121,23 +126,32 @@ nav {
     font-weight: 700;
     color: var(--text-primary);
     letter-spacing: -0.025em;
-    text-decoration: none;
+    text-decoration: none !important;
     transition: color var(--transition-base);
     cursor: pointer;
+    border-bottom: none !important;
 }
 
 .logo:hover,
 .logo:focus {
     color: var(--primary);
     outline: none;
-    text-decoration: none;
+    text-decoration: none !important;
+    border-bottom: none !important;
 }
 
 .logo:focus-visible {
     outline: 2px solid var(--primary);
     outline-offset: 4px;
     border-radius: var(--radius-sm);
-    text-decoration: none;
+    text-decoration: none !important;
+}
+
+.logo:link,
+.logo:visited,
+.logo:active {
+    text-decoration: none !important;
+    border-bottom: none !important;
 }
 
 .nav-links {
