@@ -343,9 +343,9 @@
                     // Scroll to success message smoothly
                     successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
                     
-                    // After 5 seconds, reload the page to clear everything
+                    // After 5 seconds, reload the page to root (clears hash)
                     setTimeout(() => {
-                        window.location.href = '/';
+                        window.location.href = window.location.origin + '/';
                     }, 5000);
                 } else {
                     // Show error message
