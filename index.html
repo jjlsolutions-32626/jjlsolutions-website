@@ -51,8 +51,8 @@
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <!-- Header -->
-    <header role="banner">
-        <nav role="navigation" aria-label="Main navigation">
+    <header>
+        <nav aria-label="Main navigation">
             <a href="/" class="logo" aria-label="JJL Computer Solutions - Home">JJL Computer Solutions</a>
             <ul class="nav-links">
                 <li><a href="#services">Services</a></li>
@@ -233,16 +233,16 @@
                     
                     <!-- Honeypot spam protection (hidden from users, accessible to screen readers) -->
                     <label for="botcheck" class="sr-only">Leave this field blank if you are human</label>
-                    <input type="checkbox" id="botcheck" name="botcheck" class="sr-only" tabindex="-1" autocomplete="off">
+                    <input type="checkbox" id="botcheck" name="botcheck" class="sr-only" tabindex="-1">
                     
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="name">Name <span aria-label="required">*</span></label>
-                            <input type="text" id="name" name="name" required aria-required="true">
+                            <label for="name">Name <abbr title="required" aria-label="required">*</abbr></label>
+                            <input type="text" id="name" name="name" required>
                         </div>
                         <div class="form-group">
-                            <label for="email">Email <span aria-label="required">*</span></label>
-                            <input type="email" id="email" name="email" required aria-required="true">
+                            <label for="email">Email <abbr title="required" aria-label="required">*</abbr></label>
+                            <input type="email" id="email" name="email" required>
                         </div>
                     </div>
                     
@@ -258,8 +258,8 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="message">Message <span aria-label="required">*</span></label>
-                        <textarea id="message" name="message" rows="5" required aria-required="true"></textarea>
+                        <label for="message">Message <abbr title="required" aria-label="required">*</abbr></label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
                     </div>
                     
                     <button type="submit" class="submit-button">Send Message</button>
@@ -304,7 +304,7 @@
     </main>
 
     <!-- Footer -->
-    <footer role="contentinfo">
+    <footer>
         <p>&copy; 2025 JJL Computer Solutions. All rights reserved.</p>
     </footer>
     

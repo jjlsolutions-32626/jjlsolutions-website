@@ -437,8 +437,10 @@ section {
     font-size: 0.9375rem;
 }
 
-.form-group label span {
+.form-group label abbr {
     color: var(--primary);
+    text-decoration: none;
+    cursor: help;
 }
 
 .form-group input,
