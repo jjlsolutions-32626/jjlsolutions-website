@@ -53,7 +53,7 @@
     <!-- Header -->
     <header role="banner">
         <nav role="navigation" aria-label="Main navigation">
-            <div class="logo" aria-label="JJL Computer Solutions - Home">JJL Computer Solutions</div>
+            <a href="/" class="logo" aria-label="JJL Computer Solutions - Home">JJL Computer Solutions</a>
             <ul class="nav-links">
                 <li><a href="#services">Services</a></li>
                 <li><a href="#why-us">Why Us</a></li>
@@ -287,17 +287,10 @@
                         </svg>
                     </div>
                     <h3>Oops! Something went wrong.</h3>
-                    <p>Please try again or email us directly at Jleonardjr@live.com</p>
+                    <p>Please try again in a moment. If the problem persists, please check back later.</p>
                 </div>
                 
                 <div class="contact-info">
-                    <div class="contact-item">
-                        <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                            <polyline points="22,6 12,13 2,6"></polyline>
-                        </svg>
-                        <a href="mailto:Jleonardjr@live.com">Jleonardjr@live.com</a>
-                    </div>
                     <div class="contact-item">
                         <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false">
                             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
@@ -347,19 +340,13 @@
                     form.style.display = 'none';
                     successMessage.style.display = 'block';
                     
-                    // Scroll to success message
+                    // Scroll to success message smoothly
                     successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
                     
-                    // Reset form for future use
-                    form.reset();
-                    
-                    // Show form again after 10 seconds
+                    // After 5 seconds, reload the page to clear everything
                     setTimeout(() => {
-                        form.style.display = 'block';
-                        successMessage.style.display = 'none';
-                        submitButton.disabled = false;
-                        submitButton.textContent = originalButtonText;
-                    }, 10000);
+                        window.location.href = '/';
+                    }, 5000);
                 } else {
                     // Show error message
                     throw new Error('Form submission failed');
@@ -372,13 +359,13 @@
                 // Scroll to error message
                 errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 
-                // Re-enable button and show form again
+                // Re-enable button and show form again after 5 seconds
                 setTimeout(() => {
                     form.style.display = 'block';
                     errorMessage.style.display = 'none';
                     submitButton.disabled = false;
                     submitButton.textContent = originalButtonText;
-                }, 8000);
+                }, 5000);
             }
         });
     </script>
