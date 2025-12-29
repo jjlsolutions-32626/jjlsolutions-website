@@ -230,7 +230,11 @@
                 <form class="contact-form" action="https://api.web3forms.com/submit" method="POST" aria-label="Contact form">
                     <input type="hidden" name="access_key" value="39e32ac3-1ea6-4f76-8fc1-79b285361b99">
                     <input type="hidden" name="subject" value="New Contact from JJL Website">
-                    <input type="checkbox" name="botcheck" style="display: none;" aria-hidden="true">
+                    <input type="hidden" name="redirect" value="https://jjlsolutions.com/#contact">
+                    
+                    <!-- Honeypot spam protection (hidden from users, accessible to screen readers) -->
+                    <label for="botcheck" class="sr-only">Leave this field blank if you are human</label>
+                    <input type="checkbox" id="botcheck" name="botcheck" class="sr-only" tabindex="-1" autocomplete="off">
                     
                     <div class="form-row">
                         <div class="form-group">
