@@ -502,6 +502,79 @@ section {
     border-radius: var(--radius-sm);
 }
 
+/* Form Success/Error Messages */
+.form-message {
+    max-width: 600px;
+    margin: var(--spacing-xl) auto;
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.success-message {
+    background: rgba(34, 197, 94, 0.1);
+    border: 2px solid #22c55e;
+}
+
+.error-message {
+    background: rgba(239, 68, 68, 0.1);
+    border: 2px solid #ef4444;
+}
+
+.form-message .message-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto var(--spacing-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.success-message .message-icon {
+    color: #22c55e;
+}
+
+.error-message .message-icon {
+    color: #ef4444;
+}
+
+.form-message .message-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.form-message h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-primary);
+}
+
+.success-message h3 {
+    color: #22c55e;
+}
+
+.error-message h3 {
+    color: #ef4444;
+}
+
+.form-message p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
 /* Footer */
 footer {
     background: var(--dark-lighter);
