@@ -747,3 +747,22 @@ footer {
         display: none;
     }
 }
+
+/* Logo styling */
+.logo-img {
+    height: 50px;
+    width: auto;
+    display: block;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+/* Mobile - smaller logo */
+@media (max-width: 768px) {
+    .logo-img {
+        height: 40px;
+    }
+}
