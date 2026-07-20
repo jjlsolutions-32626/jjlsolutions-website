@@ -141,6 +141,30 @@
                     "name": "IT Automation & Workflow",
                     "description": "Custom n8n workflows, integrations, and self-hosted tooling to eliminate repetitive office tasks."
                 }
+            },
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "Website Design & Maintenance",
+                    "description": "Professional website design, ongoing maintenance, and hosting assistance for small businesses."
+                }
+            },
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "Marketing Services",
+                    "description": "Social media management, content creation, Google Business Profile optimization, local SEO, and brand design."
+                }
+            },
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "Self-Hosted Solutions",
+                    "description": "Private alternatives to cloud services deployed on your hardware. File storage, office suites, business tools, and more."
+                }
             }
         ]
     }
@@ -353,6 +377,68 @@
                         </ul>
                         <p><a href="/services/pdf-tools.html" class="service-link">Learn more &rarr;</a></p>
                     </article>
+
+                    <!-- Website Design & Maintenance -->
+                    <article class="service-card">
+                        <div class="service-icon" role="img" aria-label="Browser window icon representing website design">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                <line x1="2" y1="7" x2="22" y2="7"></line>
+                                <line x1="12" y1="17" x2="12" y2="21"></line>
+                                <line x1="8" y1="21" x2="16" y2="21"></line>
+                            </svg>
+                        </div>
+                        <h3>Website Design & Maintenance</h3>
+                        <p>Clean, fast, professional websites for small businesses &mdash; built to work, not just look pretty. We handle design, updates, hosting assistance, and ongoing maintenance so your site stays current without becoming your second job.</p>
+                        <ul class="service-features">
+                            <li>Custom website design</li>
+                            <li>Ongoing maintenance & updates</li>
+                            <li>Hosting setup & assistance</li>
+                            <li>Mobile-friendly & search-optimized</li>
+                        </ul>
+                        <p><a href="/services/website-design-maintenance.html" class="service-link">Learn more &rarr;</a></p>
+                    </article>
+
+                    <!-- Marketing Services -->
+                    <article class="service-card">
+                        <div class="service-icon" role="img" aria-label="Megaphone icon representing marketing services">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                            </svg>
+                        </div>
+                        <h3>Marketing Services</h3>
+                        <p>Get your business seen by the right people &mdash; locally and online. Social media management, content creation, Google Business Profile optimization, local SEO, email campaigns, and brand design sized for small business budgets.</p>
+                        <ul class="service-features">
+                            <li>Social media management</li>
+                            <li>Google Business Profile & local SEO</li>
+                            <li>Content creation & email marketing</li>
+                            <li>Brand design & graphics</li>
+                        </ul>
+                        <p><a href="/services/marketing-services.html" class="service-link">Learn more &rarr;</a></p>
+                    </article>
+
+                    <!-- Self-Hosted Solutions -->
+                    <article class="service-card">
+                        <div class="service-icon" role="img" aria-label="Server icon representing self-hosted solutions">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                                <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                                <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                                <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                                <line x1="6" y1="18" x2="6.01" y2="18"></line>
+                                <line x1="10" y1="6" x2="10.01" y2="6"></line>
+                                <line x1="10" y1="18" x2="10.01" y2="18"></line>
+                            </svg>
+                        </div>
+                        <h3>Self-Hosted Solutions</h3>
+                        <p>Your data on your hardware. We deploy private alternatives to cloud services &mdash; file storage, office suites, PDF tools, invoicing, automation, camera systems, and more. No subscriptions, no third-party access to your information.</p>
+                        <ul class="service-features">
+                            <li>Private file storage & collaboration</li>
+                            <li>Business tools (invoicing, helpdesk, automation)</li>
+                            <li>Smart home & camera monitoring</li>
+                            <li>No per-user subscription fees</li>
+                        </ul>
+                        <p><a href="/services/self-hosted-solutions.html" class="service-link">Learn more &rarr;</a></p>
+                    </article>
                 </div>
             </div>
         </section>
@@ -452,7 +538,18 @@
                             <input type="text" id="company" name="company">
                         </div>
                     </div>
-                    
+
+                    <div class="form-group">
+                        <label for="service">What can we help with?</label>
+                        <select id="service" name="service">
+                            <option value="">Select a service...</option>
+                            <option value="IT Support">IT Support & Troubleshooting</option>
+                            <option value="Website & Marketing">Website Design, Maintenance & Marketing</option>
+                            <option value="Self-Hosted Solutions">Self-Hosted Solutions</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
                     <div class="form-group">
                         <label for="message">Message <abbr title="required" aria-label="required">*</abbr></label>
                         <textarea id="message" name="message" rows="5" required></textarea>
