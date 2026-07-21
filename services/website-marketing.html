@@ -35,7 +35,15 @@
     <meta name="twitter:image" content="https://jjlsolutions.com/images/circuit-board-bg.png">
 
     <style>
-        /* Landing Page Specific Styles */
+        /* Landing Page Specific Styles - Override global blue theme with warm sunset */
+        body {
+            background: linear-gradient(180deg, #0f172a 0%, #1e1a1f 50%, #1a1018 100%);
+        }
+
+        main {
+            background: transparent;
+        }
+
         .landing-hero {
             background: linear-gradient(135deg, rgba(255, 107, 53, 0.1) 0%, rgba(218, 98, 125, 0.1) 100%),
                         linear-gradient(rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.95));
