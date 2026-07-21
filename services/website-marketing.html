@@ -13,7 +13,7 @@
     <!-- Preconnect to Google Fonts for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/pages.css">
@@ -33,6 +33,411 @@
     <meta name="twitter:title" content="Website Design & Marketing Services for Small Businesses">
     <meta name="twitter:description" content="Professional websites & local marketing for Levy County small businesses.">
     <meta name="twitter:image" content="https://jjlsolutions.com/images/circuit-board-bg.png">
+
+    <style>
+        /* Landing Page Specific Styles */
+        .landing-hero {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(147, 51, 234, 0.1) 100%),
+                        linear-gradient(rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.95));
+            padding: 6rem 2rem;
+            text-align: center;
+            margin-bottom: 4rem;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .landing-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 50%, rgba(147, 51, 234, 0.15) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .landing-hero .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .landing-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #ec4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .landing-hero .hero-subtitle {
+            font-size: 1.35rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .landing-hero .hero-cta {
+            display: inline-flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--primary);
+            padding: 1rem 2.5rem;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.2s;
+            border: 2px solid rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(59, 130, 246, 0.2);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto 5rem;
+            padding: 0 2rem;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(51, 65, 85, 0.3);
+            border-radius: 1rem;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Service Cards */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto 5rem;
+            padding: 0 2rem;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(147, 51, 234, 0.05) 100%);
+            border: 2px solid transparent;
+            border-radius: 1.5rem;
+            padding: 3rem;
+            position: relative;
+            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 1.5rem;
+            padding: 2px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-card-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .service-card h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .service-card > p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .service-card h4 {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin: 2rem 0 1rem;
+            font-weight: 600;
+        }
+
+        .service-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 2rem 0;
+        }
+
+        .service-card ul li {
+            padding: 0.75rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .service-card ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .service-card .cta-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            transition: gap 0.2s;
+        }
+
+        .service-card .cta-link:hover {
+            gap: 1rem;
+        }
+
+        /* Why Choose Us Section */
+        .why-section {
+            max-width: 1400px;
+            margin: 0 auto 5rem;
+            padding: 0 2rem;
+        }
+
+        .why-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--text-primary);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .benefit-card {
+            background: rgba(51, 65, 85, 0.3);
+            padding: 2.5rem;
+            border-radius: 1rem;
+            border-left: 4px solid var(--primary);
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .benefit-card:hover {
+            transform: translateX(5px);
+            border-color: #8b5cf6;
+        }
+
+        .benefit-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .benefit-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* Team Callout */
+        .team-callout {
+            max-width: 1200px;
+            margin: 0 auto 5rem;
+            padding: 3rem;
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.1) 0%, rgba(147, 51, 234, 0.1) 100%);
+            border: 2px solid rgba(236, 72, 153, 0.3);
+            border-radius: 1.5rem;
+            margin-left: 2rem;
+            margin-right: 2rem;
+        }
+
+        .team-callout h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .team-callout p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            font-size: 1.1rem;
+            margin: 0;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            max-width: 1000px;
+            margin: 0 auto 5rem;
+            padding: 0 2rem;
+        }
+
+        .faq-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--text-primary);
+        }
+
+        .faq-item {
+            background: rgba(51, 65, 85, 0.3);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .faq-item:hover {
+            border-color: rgba(59, 130, 246, 0.5);
+            box-shadow: 0 5px 20px rgba(59, 130, 246, 0.1);
+        }
+
+        .faq-item h4 {
+            font-size: 1.2rem;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .faq-item p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            max-width: 1200px;
+            margin: 0 auto 5rem;
+            padding: 4rem 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(147, 51, 234, 0.1) 100%);
+            border-radius: 2rem;
+            border: 2px solid rgba(59, 130, 246, 0.3);
+            margin-left: 2rem;
+            margin-right: 2rem;
+        }
+
+        .final-cta h3 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .final-cta p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .landing-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .landing-hero .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .landing-hero {
+                padding: 4rem 1.5rem;
+            }
+
+            .service-card {
+                padding: 2rem;
+            }
+        }
+
+        /* Override breadcrumb for landing page */
+        .breadcrumb {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+        }
+    </style>
 </head>
 <body>
     <!-- Skip link for keyboard navigation -->
@@ -41,9 +446,7 @@
     <!-- Header -->
     <header>
         <nav aria-label="Main navigation">
-            <a href="/" class="logo" aria-label="JJL Computer Solutions - Home">
-                <img src="/images/logo.png" alt="JJL Computer Solutions" class="logo-img">
-            </a>
+            <a href="/" class="logo" aria-label="JJL Computer Solutions - Home">JJL Computer Solutions</a>
             <ul class="nav-links">
                 <li class="has-dropdown">
                     <a href="/#services">IT Services</a>
@@ -70,115 +473,144 @@
     <main id="main-content">
         <div class="breadcrumb"><a href="/">Home</a> / <a href="/#services">Services</a> / Website & Marketing</div>
 
-        <article class="service-detail">
-            <h1>Website Design & Marketing for Levy County Businesses</h1>
-
-            <p class="lead">Get your business seen online. Professional websites that work, local marketing that brings in customers, and ongoing support so you can focus on running your business.</p>
-
-            <div class="service-intro">
-                <p>Most small businesses in Levy County need two things: a website that actually works and a way to be found by local customers. We handle both — website design, maintenance, and the marketing services that make sure people can find you when they're searching.</p>
+        <!-- Hero Section -->
+        <section class="landing-hero">
+            <div class="hero-content">
+                <h1>Your Business Deserves Better Than a Facebook Page</h1>
+                <p class="hero-subtitle">Professional websites that work, local marketing that brings in customers, and ongoing support so you can focus on running your business. Built for Levy County small businesses.</p>
+                <div class="hero-cta">
+                    <a href="#contact" class="btn-primary">Get Started</a>
+                    <a href="tel:+13523568254" class="btn-secondary">Call (352) 356-8254</a>
+                </div>
             </div>
+        </section>
 
-            <h2>What We Offer</h2>
+        <!-- Stats Section -->
+        <section class="stats-section">
+            <div class="stat-card">
+                <div class="stat-number">15+</div>
+                <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Levy County Local</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">Fast</div>
+                <div class="stat-label">2-4 Hour Response</div>
+            </div>
+        </section>
 
-            <!-- Website Design Section -->
-            <div class="service-section">
-                <h3>🌐 Website Design & Maintenance</h3>
+        <!-- Services Grid -->
+        <section class="services-grid">
+            <!-- Website Design Card -->
+            <article class="service-card">
+                <span class="service-card-icon">🌐</span>
+                <h3>Website Design & Maintenance</h3>
                 <p>Clean, fast, professional websites built to work — not just look pretty. We handle design, updates, hosting assistance, and ongoing maintenance so your site stays current without becoming your second job.</p>
 
-                <h4>Website services include:</h4>
+                <h4>What's Included:</h4>
                 <ul>
-                    <li><strong>Custom website design</strong> — Tailored to your business, mobile-friendly, search-optimized</li>
-                    <li><strong>Ongoing maintenance & updates</strong> — Content changes, security updates, technical support</li>
-                    <li><strong>Hosting setup & assistance</strong> — Domain management, SSL certificates, email configuration</li>
-                    <li><strong>Performance optimization</strong> — Fast load times, Core Web Vitals, accessibility compliance</li>
+                    <li><strong>Custom website design</strong> tailored to your business, mobile-friendly, search-optimized</li>
+                    <li><strong>Ongoing maintenance & updates</strong> for content changes, security updates, technical support</li>
+                    <li><strong>Hosting setup & assistance</strong> including domain management, SSL certificates, email configuration</li>
+                    <li><strong>Performance optimization</strong> for fast load times, Core Web Vitals, accessibility compliance</li>
                 </ul>
 
-                <p><a href="/services/website-design-maintenance.html" class="cta-link">Learn More About Website Design &rarr;</a></p>
-            </div>
+                <a href="/services/website-design-maintenance.html" class="cta-link">Learn More About Website Design &rarr;</a>
+            </article>
 
-            <!-- Marketing Section -->
-            <div class="service-section">
-                <h3>📢 Marketing Services</h3>
+            <!-- Marketing Card -->
+            <article class="service-card">
+                <span class="service-card-icon">📢</span>
+                <h3>Marketing Services</h3>
                 <p>Get your Levy County business seen online. Social media management, Google Business Profile optimization, local SEO, content creation, and brand design — packages sized for small business budgets.</p>
 
-                <h4>Marketing services include:</h4>
+                <h4>What's Included:</h4>
                 <ul>
-                    <li><strong>Social media management</strong> — Regular posts, engagement, content planning for Facebook, Instagram, LinkedIn</li>
-                    <li><strong>Google Business Profile optimization</strong> — Setup, posts, reviews, photos, map pack rankings</li>
-                    <li><strong>Local SEO</strong> — Get found in "near me" searches, directory listings, citation building</li>
-                    <li><strong>Content creation</strong> — Blog posts, social graphics, email campaigns, business photography</li>
-                    <li><strong>Brand design</strong> — Logos, business cards, flyers, signage, consistent visual identity</li>
-                    <li><strong>Email marketing</strong> — Newsletter setup, campaign creation, automation</li>
+                    <li><strong>Social media management</strong> with regular posts, engagement, content planning for Facebook, Instagram, LinkedIn</li>
+                    <li><strong>Google Business Profile optimization</strong> including setup, posts, reviews, photos, map pack rankings</li>
+                    <li><strong>Local SEO</strong> to get found in "near me" searches, directory listings, citation building</li>
+                    <li><strong>Content creation</strong> for blog posts, social graphics, email campaigns, business photography</li>
+                    <li><strong>Brand design</strong> including logos, business cards, flyers, signage, consistent visual identity</li>
+                    <li><strong>Email marketing</strong> with newsletter setup, campaign creation, automation</li>
                 </ul>
 
-                <p><a href="/services/marketing-services.html" class="cta-link">Learn More About Marketing Services &rarr;</a></p>
-            </div>
+                <a href="/services/marketing-services.html" class="cta-link">Learn More About Marketing Services &rarr;</a>
+            </article>
+        </section>
 
-            <div class="callout-box">
-                <strong>Who runs marketing services?</strong>
-                <p>Jennie Leonard brings an outgoing, people-first approach to marketing that complements Jim's technical IT background. She handles social media, content creation, Google Business Profile management, and brand design — the friendly, customer-facing side of growing a local business online.</p>
-            </div>
-
+        <!-- Why Choose Us -->
+        <section class="why-section">
             <h2>Why Small Businesses Choose Us</h2>
-
-            <div class="feature-grid">
-                <div class="feature-item">
+            <div class="benefits-grid">
+                <div class="benefit-card">
                     <h4>Local Focus</h4>
                     <p>We know Levy County, Chiefland, and the surrounding area. Your marketing speaks to local customers, not a generic national audience.</p>
                 </div>
 
-                <div class="feature-item">
+                <div class="benefit-card">
                     <h4>Real Communication</h4>
                     <p>You talk to the same people every time — no call centers, no ticket systems, no getting shuffled between departments.</p>
                 </div>
 
-                <div class="feature-item">
+                <div class="benefit-card">
                     <h4>Small Business Budgets</h4>
                     <p>Our packages are built for businesses with 1-10 employees, not enterprise pricing that assumes you have a marketing department.</p>
                 </div>
 
-                <div class="feature-item">
+                <div class="benefit-card">
                     <h4>Technical + Creative</h4>
                     <p>We handle both sides: the technical (hosting, SEO, site speed) and the creative (design, content, brand). You don't need two vendors.</p>
                 </div>
             </div>
+        </section>
 
+        <!-- Team Callout -->
+        <section class="team-callout">
+            <h3>Who runs marketing services?</h3>
+            <p>Jennie Leonard brings an outgoing, people-first approach to marketing that complements Jim's technical IT background. She handles social media, content creation, Google Business Profile management, and brand design — the friendly, customer-facing side of growing a local business online.</p>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
             <h2>Common Questions</h2>
 
-            <div class="faq-simple">
-                <div class="faq-simple-item">
-                    <h4>Do I need a website if I already have a Facebook page?</h4>
-                    <p>Your Facebook page is rented space — Facebook controls it, can change the algorithm, or suspend it without warning. A website is owned space. You control it, no one can take it away, and it ranks in Google searches where Facebook pages don't. You should have both, but a website is your foundation.</p>
-                </div>
-
-                <div class="faq-simple-item">
-                    <h4>How much does a website cost?</h4>
-                    <p>It depends on complexity, but most small business websites run $1,500-$3,500 for the initial design, then $50-$150/month for hosting, maintenance, and updates. We'll give you a specific quote after a quick conversation about what you need.</p>
-                </div>
-
-                <div class="faq-simple-item">
-                    <h4>What's included in marketing services?</h4>
-                    <p>We offer packages or à la carte services. A typical package might include weekly social media posts, monthly Google Business Profile updates, quarterly content creation (blog posts or videos), and ongoing review management. We tailor it to what you actually need, not a one-size-fits-all subscription.</p>
-                </div>
-
-                <div class="faq-simple-item">
-                    <h4>Can you take over an existing website?</h4>
-                    <p>Yes. We can take over maintenance, updates, and hosting for sites built on WordPress, static HTML, or most other platforms. If your current provider disappeared or you're paying too much for too little, we can help.</p>
-                </div>
-
-                <div class="faq-simple-item">
-                    <h4>Do you write the content or do I have to?</h4>
-                    <p>We can do either. You know your business best, so we prefer collaboration: you give us the information, we write it in a way that works for the web. But if you don't have time, we can interview you and write everything ourselves.</p>
-                </div>
+            <div class="faq-item">
+                <h4>Do I need a website if I already have a Facebook page?</h4>
+                <p>Your Facebook page is rented space — Facebook controls it, can change the algorithm, or suspend it without warning. A website is owned space. You control it, no one can take it away, and it ranks in Google searches where Facebook pages don't. You should have both, but a website is your foundation.</p>
             </div>
 
-            <div class="article-cta">
-                <h3>Ready to get started?</h3>
-                <p>We serve Levy County small businesses — Chiefland, Bronson, Williston, Cedar Key, and surrounding areas. Let's talk about your website, your online presence, and what you're trying to accomplish.</p>
-                <a href="/#contact" class="cta-link">Get In Touch &rarr;</a>
+            <div class="faq-item">
+                <h4>How much does a website cost?</h4>
+                <p>It depends on complexity, but most small business websites run $1,500-$3,500 for the initial design, then $50-$150/month for hosting, maintenance, and updates. We'll give you a specific quote after a quick conversation about what you need.</p>
             </div>
-        </article>
+
+            <div class="faq-item">
+                <h4>What's included in marketing services?</h4>
+                <p>We offer packages or à la carte services. A typical package might include weekly social media posts, monthly Google Business Profile updates, quarterly content creation (blog posts or videos), and ongoing review management. We tailor it to what you actually need, not a one-size-fits-all subscription.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>Can you take over an existing website?</h4>
+                <p>Yes. We can take over maintenance, updates, and hosting for sites built on WordPress, static HTML, or most other platforms. If your current provider disappeared or you're paying too much for too little, we can help.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>Do you write the content or do I have to?</h4>
+                <p>We can do either. You know your business best, so we prefer collaboration: you give us the information, we write it in a way that works for the web. But if you don't have time, we can interview you and write everything ourselves.</p>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section class="final-cta" id="contact">
+            <h3>Ready to Get Started?</h3>
+            <p>We serve Levy County small businesses — Chiefland, Bronson, Williston, Cedar Key, and surrounding areas. Let's talk about your website, your online presence, and what you're trying to accomplish.</p>
+            <div class="hero-cta">
+                <a href="/#contact" class="btn-primary">Get In Touch</a>
+                <a href="tel:+13523568254" class="btn-secondary">Call (352) 356-8254</a>
+            </div>
+        </section>
     </main>
 
     <!-- Footer -->
