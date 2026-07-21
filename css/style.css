@@ -200,6 +200,27 @@ nav {
     border-radius: var(--radius-sm);
 }
 
+/* Phone link in header */
+.phone-link {
+    background: var(--primary);
+    color: var(--dark) !important;
+    padding: var(--spacing-xs) var(--spacing-md) !important;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    transition: all var(--transition-base);
+}
+
+.phone-link::after {
+    display: none; /* Remove underline effect for phone button */
+}
+
+.phone-link:hover,
+.phone-link:focus {
+    background: var(--primary-dark);
+    color: var(--text-primary) !important;
+    transform: translateY(-2px);
+}
+
 /* Container */
 .container {
     max-width: 1200px;
