@@ -25,6 +25,66 @@
             background-position: center;
             background-repeat: no-repeat;
         }
+
+        /* Dual Path Cards */
+        .path-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 900px;
+            margin: 3rem auto 0;
+        }
+
+        .path-card {
+            background: rgba(51, 65, 85, 0.4);
+            border: 2px solid rgba(14, 165, 233, 0.3);
+            border-radius: 1rem;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .path-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(14, 165, 233, 0.6);
+            box-shadow: 0 10px 30px rgba(14, 165, 233, 0.2);
+        }
+
+        .path-card h2 {
+            font-size: 1.75rem;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .path-card p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .path-button {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.875rem 2rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .path-button:hover {
+            background: var(--primary-dark);
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .path-cards {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
     </style>
     
     <!-- Open Graph / Social Media -->
@@ -253,6 +313,7 @@
                     </ul>
                 </li>
                 <li><a href="/services/website-marketing.html">Website & Marketing</a></li>
+                <li><a href="/services/home-tech-support.html">Home Tech Support</a></li>
                 <li><a href="#why-us">Why Us</a></li>
                 <li><a href="/faq.html">FAQ</a></li>
                 <li><a href="/blog/">Blog</a></li>
@@ -267,17 +328,29 @@
         <!-- Hero Section -->
         <section class="hero" aria-labelledby="hero-title">
             <div class="hero-content">
-                <h1 id="hero-title">IT Support & Consulting for Levy County, FL</h1>
-                <p class="hero-subtitle">Expert consulting, support, and custom solutions to optimize your IT infrastructure and keep your business running smoothly.</p>
-                <p class="hero-location">Serving Levy County, Florida and surrounding areas</p>
-                <a href="#contact" class="cta-button" aria-label="Get started with JJL Computer Solutions">Get Started Today</a>
+                <h1 id="hero-title">IT Support & Computer Help for Businesses and Homes in Levy County</h1>
+                <p class="hero-subtitle">Enterprise-grade IT experience, now available to small businesses AND homeowners across Chiefland, Bronson, Williston, Cedar Key, and Levy County.</p>
+
+                <!-- Dual Path Cards -->
+                <div class="path-cards">
+                    <div class="path-card">
+                        <h2>For Your Business</h2>
+                        <p>Managed IT support, network setup, backups, and automation for small business offices.</p>
+                        <a href="#services" class="path-button">See Business Services</a>
+                    </div>
+                    <div class="path-card">
+                        <h2>For Your Home</h2>
+                        <p>Computer repair, virus removal, Wi-Fi setup, and data recovery for home and personal devices.</p>
+                        <a href="/services/home-tech-support.html" class="path-button">See Home Services</a>
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- Services Section -->
         <section class="services" id="services" aria-labelledby="services-title">
             <div class="container">
-                <h2 id="services-title" class="section-title">Our Services</h2>
+                <h2 id="services-title" class="section-title">Business IT Services</h2>
                 <p class="section-subtitle">Practical IT solutions for small businesses across North Central Florida</p>
                 
                 <div class="services-grid">
@@ -566,6 +639,7 @@
                         <select id="service" name="service">
                             <option value="">Select a service...</option>
                             <option value="IT Support">IT Support & Troubleshooting</option>
+                            <option value="Home / Personal Computer Help">Home / Personal Computer Help</option>
                             <option value="Website & Marketing">Website Design, Maintenance & Marketing</option>
                             <option value="Self-Hosted Solutions">Self-Hosted Solutions</option>
                             <option value="Other">Other</option>
