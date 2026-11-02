@@ -961,3 +961,175 @@ footer a:focus {
         height: 40px;
     }
 }
+
+/* ============================================
+   Veteran Badge
+   ============================================ */
+.veteran-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, rgba(14, 165, 233, 0.2) 0%, rgba(6, 182, 212, 0.2) 100%);
+    border: 1px solid var(--primary);
+    color: var(--accent-light);
+    font-size: 0.875rem;
+    font-weight: 600;
+    padding: 0.375rem 1rem;
+    border-radius: 2rem;
+    margin-bottom: 1rem;
+    letter-spacing: 0.025em;
+    text-transform: uppercase;
+}
+
+/* ============================================
+   Trust Strip
+   ============================================ */
+.trust-strip {
+    background: var(--dark-lighter);
+    border-bottom: 1px solid var(--border);
+    padding: 1.5rem var(--spacing-lg);
+}
+
+.trust-items {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.trust-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-secondary);
+    font-size: 0.9375rem;
+    font-weight: 500;
+}
+
+.trust-icon {
+    width: 24px;
+    height: 24px;
+    color: var(--primary);
+}
+
+@media (max-width: 768px) {
+    .trust-items {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+    }
+
+    .trust-item {
+        font-size: 0.875rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .trust-strip {
+        padding: 1.25rem var(--spacing-md);
+    }
+
+    .trust-items {
+        gap: 1rem;
+    }
+
+    .trust-item {
+        font-size: 0.8125rem;
+    }
+
+    .trust-icon {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/* ============================================
+   Reviews Section
+   ============================================ */
+.reviews {
+    background: rgba(30, 41, 59, 0.2);
+    padding: clamp(3rem, 8vw, 5rem) var(--spacing-lg);
+}
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+}
+
+.review-card {
+    background: rgba(51, 65, 85, 0.3);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    transition: all var(--transition-base);
+}
+
+.review-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(14, 165, 233, 0.15);
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.review-name {
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 1rem;
+}
+
+.review-date {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+}
+
+.review-text {
+    color: var(--text-secondary);
+    font-size: 0.9375rem;
+    line-height: 1.7;
+}
+
+.review-readmore {
+    color: var(--accent-light);
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.review-readmore:hover {
+    color: var(--primary);
+    text-decoration: underline;
+}
+
+.reviews-cta {
+    text-align: center;
+    margin-top: var(--spacing-xl);
+}
+
+.reviews-link {
+    color: var(--accent-light);
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color var(--transition-base);
+}
+
+.reviews-link:hover,
+.reviews-link:focus {
+    color: var(--primary);
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .reviews-grid {
+        grid-template-columns: 1fr;
+    }
+}

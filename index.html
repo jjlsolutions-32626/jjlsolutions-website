@@ -341,8 +341,8 @@
         <!-- Hero Section -->
         <section class="hero" aria-labelledby="hero-title">
             <div class="hero-content">
+                <span class="veteran-badge">Veteran-Owned</span>
                 <h1 id="hero-title">IT Support & Computer Help for Businesses and Homes in Levy County</h1>
-                <p style="color: #94a3b8; font-size: 1rem; margin-bottom: 0.5rem;">Veteran-owned and local to Levy County.</p>
                 <p class="hero-subtitle">Enterprise-grade IT experience, now available to small businesses AND homeowners across Chiefland, Bronson, Williston, Cedar Key, and Levy County.</p>
 
                 <!-- Dual Path Cards -->
@@ -357,6 +357,40 @@
                         <p>Computer repair, virus removal, Wi-Fi setup, and data recovery for home and personal devices.</p>
                         <a href="/services/home-tech-support.html" class="path-button">See Home Services</a>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trust Strip -->
+        <section class="trust-strip" aria-label="Trust indicators">
+            <div class="trust-items">
+                <div class="trust-item">
+                    <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
+                    <span>Veteran-owned</span>
+                </div>
+                <div class="trust-item">
+                    <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                    <span>15+ years in IT</span>
+                </div>
+                <div class="trust-item">
+                    <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <span>Local to Levy County</span>
+                </div>
+                <div class="trust-item">
+                    <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                        <line x1="8" y1="21" x2="16" y2="21"></line>
+                        <line x1="12" y1="17" x2="12" y2="21"></line>
+                    </svg>
+                    <span>Remote & on-site support</span>
                 </div>
             </div>
         </section>
@@ -576,6 +610,22 @@
             </div>
         </section>
 
+        <!-- What Clients Say Section (hidden if no reviews) -->
+        <section class="reviews" id="reviews" aria-labelledby="reviews-title" style="display: none;">
+            <div class="container">
+                <h2 id="reviews-title" class="section-title">What Clients Say</h2>
+                <p class="section-subtitle">Feedback from our customers on Facebook</p>
+
+                <div class="reviews-grid" id="reviewsGrid">
+                    <!-- Reviews loaded dynamically -->
+                </div>
+
+                <p class="reviews-cta">
+                    <a href="https://www.facebook.com/jjlcomputersolutions/reviews" target="_blank" rel="noopener" class="reviews-link">See all reviews on Facebook →</a>
+                </p>
+            </div>
+        </section>
+
         <!-- FAQ Section -->
         <section class="faq" id="faq" aria-labelledby="faq-title">
             <div class="container">
@@ -787,6 +837,62 @@
                 }, 5000);
             }
         });
+    </script>
+
+    <!-- Reviews Loading Script -->
+    <script>
+        (async function loadReviews() {
+            try {
+                const response = await fetch('/api/reviews');
+                if (!response.ok) return;
+
+                const reviews = await response.json();
+                if (!Array.isArray(reviews) || reviews.length === 0) return;
+
+                const reviewsSection = document.getElementById('reviews');
+                const reviewsGrid = document.getElementById('reviewsGrid');
+
+                // Take up to 3 reviews
+                const displayReviews = reviews.slice(0, 3);
+
+                // Build review cards
+                const cards = displayReviews.map(review => {
+                    const date = new Date(review.date).toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'short',
+                        day: 'numeric'
+                    });
+
+                    // Truncate text to ~250 chars
+                    let text = review.text || '';
+                    const truncated = text.length > 250;
+                    if (truncated) {
+                        text = text.substring(0, 247) + '...';
+                    }
+
+                    return `
+                        <article class="review-card">
+                            <div class="review-header">
+                                <span class="review-name">${escapeHtml(review.name)}</span>
+                                <span class="review-date">${date}</span>
+                            </div>
+                            <p class="review-text">${escapeHtml(text)}${truncated ? ' <a href="https://www.facebook.com/jjlcomputersolutions/reviews" target="_blank" rel="noopener" class="review-readmore">Read more on Facebook</a>' : ''}</p>
+                        </article>
+                    `;
+                }).join('');
+
+                reviewsGrid.innerHTML = cards;
+                reviewsSection.style.display = 'block';
+            } catch (e) {
+                // Silently fail - section stays hidden
+            }
+        })();
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
     </script>
 </body>
 </html>

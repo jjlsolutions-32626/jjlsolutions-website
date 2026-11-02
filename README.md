@@ -81,3 +81,41 @@ The contact form uses Web3Forms (free service). To activate it:
 6. Save and push to GitHub
 
 That's it! Form submissions will be emailed to you. No backend needed.
+
+## Cloudflare Pages Deployment
+
+This site uses Cloudflare Pages with Functions for dynamic features.
+
+### Deployment Settings
+
+In Cloudflare Pages dashboard:
+- **Build command**: (none - static site)
+- **Build output directory**: `/` (root)
+- **Framework preset**: None
+
+### Facebook Reviews API
+
+The `/api/reviews` endpoint fetches reviews from your Facebook page.
+
+**Required Environment Variables** (set in Cloudflare Pages → Settings → Environment variables):
+
+| Variable | Description |
+|----------|-------------|
+| `FB_PAGE_ID` | Your Facebook Page ID (numeric ID, not username) |
+| `FB_PAGE_TOKEN` | Facebook Page Access Token with `pages_read_engagement` permission |
+
+**Optional KV Namespace** (for caching):
+
+1. Create a KV namespace in Cloudflare dashboard
+2. Bind it to your Pages project as `REVIEWS_CACHE`
+3. The function will cache reviews for 24 hours
+
+**Getting a Facebook Page Token**:
+
+1. Go to [Facebook Developers](https://developers.facebook.com)
+2. Create an app (Business type)
+3. Add the Facebook Login and Pages API products
+4. Generate a Page Access Token with `pages_read_engagement` permission
+5. For long-lived tokens, exchange the short-lived token via the Graph API
+
+**If tokens are missing or invalid**: The reviews section simply won't appear on the homepage (graceful degradation).
